@@ -1,0 +1,52 @@
+
+
+{% block content %}
+<!-- detail_pojisteneho.html -->
+
+<h1>Detail pojisteného</h1>
+
+<div>
+    <h2>Informace o pojisteném</h2>
+    <p>
+        <strong>Jméno:</strong> {{ pojisteny.jmeno }}<br>
+        <strong>Příjmení:</strong> {{ pojisteny.prijmeni }}<br>
+        <strong>Adresa:</strong> {{ pojisteny.ulice }} {{ pojisteny.cislo_popisne }}, {{ pojisteny.mesto }}<br>
+        <strong>Email:</strong> {{ pojisteny.email }}<br>
+        <strong>Telefon:</strong> {{ pojisteny.telefon }}<br>
+    </p>
+</div>
+
+<div>
+    <h2>Sjednaná pojištění</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Pojištění</th>
+                <th>Částka</th>
+                <th>Možnosti</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pojisteni in pojisteny.pojisteni.all %}
+            <tr>
+                <td>{{ pojisteni.nazev }}</td>
+                <td>{{ pojisteni.castka }}</td>
+                <td>
+                    <a href="{% url 'edit_pojisteni' pojisteni.pk %}">Editovat</a>
+                    <a href="{% url 'delete_pojisteni' pojisteni.pk %}">Odstranit</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <a href="{% url 'pridat_pojisteni' %}" class="btn btn-primary">Přidat pojištění</a>
+    <a href="{% url 'editovat_pojisteneho' pojisteny.pk %}" class="btn btn-primary">Editovat pojisteného</a>
+    <a href="{% url 'odstranit_pojisteneho' pojisteny.pk %}" class="btn btn-danger">Odstranit pojisteného</a>
+</div>
+
+
+{% endblock %}
+
