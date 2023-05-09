@@ -1,0 +1,31 @@
+
+
+{% block content %}
+    <h1>Přidat pojištění: {{ pojisteny.jmeno }} {{ pojisteny.prijmeni }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="id_pojisteni">Pojištění:</label>
+            <input type="text" id="id_pojisteni" name="pojisteni">
+        </div>
+        <div>
+            <label for="id_castka">Částka:</label>
+            <input type="number" id="id_castka" name="castka">
+        </div>
+        <div>
+            <label for="id_predmet">Předmět pojištění:</label>
+            <input type="text" id="id_predmet" name="predmet">
+        </div>
+        <div>
+            <label for="id_platnost_od">Platnost od:</label>
+            <input type="date" id="id_platnost_od" name="platnost_od">
+        </div>
+        <div>
+            <label for="id_platnost_do">Platnost do:</label>
+            <input type="date" id="id_platnost_do" name="platnost_do">
+        </div>
+        <button type="submit">Uložit</button>
+    </form>
+{% endblock %}
+
+
