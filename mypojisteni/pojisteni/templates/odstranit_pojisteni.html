@@ -1,0 +1,18 @@
+{% block content %}
+<h1>Potvrzení odstranění pojistění</h1>
+
+<p>Jste si jisti, že chcete odstranit toto pojistění?</p>
+
+<p><strong>Název pojistění:</strong> {{ pojisteni.nazev }}</p>
+<p><strong>Částka:</strong> {{ pojisteni.castka }}</p>
+
+<form method="POST" action="{% url 'odstranit_pojisteni' pojisteni.pk %}">
+  {% csrf_token %}
+  <input type="submit" value="Odstranit" class="btn btn-danger">
+  <a href="{% url 'detail_pojisteneho' pojisteni.pojisteny.pk %}" class="btn btn-secondary">Zrušit</a>
+</form>
+
+{% endblock %}
+
+
+

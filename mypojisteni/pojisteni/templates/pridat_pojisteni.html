@@ -6,7 +6,7 @@
         {% csrf_token %}
         <div>
             <label for="id_pojisteni">Pojištění:</label>
-            <input type="text" id="id_pojisteni" name="pojisteni">
+            <input type="text" id="id_pojisteni" name="pojisteni" value="{{ pojisteni.nazev }}">
         </div>
         <div>
             <label for="id_castka">Částka:</label>
@@ -26,6 +26,19 @@
         </div>
         <button type="submit">Uložit</button>
     </form>
+
+{% if form.errors %}
+    <div class="alert alert-danger">
+        <strong>Chyba:</strong>
+        <ul>
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
 {% endblock %}
 
 

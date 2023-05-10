@@ -16,10 +16,18 @@ class Pojisteny(models.Model):
         return self.jmeno + ' ' + self.prijmeni
 
 
+
 class Pojisteni(models.Model):
-    nazev = models.CharField(max_length=100)
-    popis = models.TextField()
-    pojisteny = models.ForeignKey(Pojisteny, on_delete=models.CASCADE, related_name='pojisteni')
-    
+    pojisteny_objekt = models.ForeignKey(Pojisteny, on_delete=models.CASCADE, related_name='pojisteni_set')
+    nazev = models.CharField(max_length=100, blank=True)
+    castka = models.DecimalField(max_digits=10, decimal_places=2, null=True)
+    predmet = models.CharField(max_length=100, blank=True)
+    platnost_od = models.DateField(blank=True, null=True)
+    platnost_do = models.DateField(blank=True, null=True)
+
+    class Meta:
+        db_table = 'pojisteni'
+
     def __str__(self):
-        return self.nazev
+        return f'Pojisteni číslo {self.id} - {self.predmet}'
+

@@ -2,6 +2,8 @@ from django.shortcuts import redirect, render, get_object_or_404
 
 # Create your views here.
 from django.http import HttpResponse
+from django.urls import reverse
+from pojisteni.models import Pojisteny, Pojisteni
 
 from pojisteni.forms import PojistenyForm
 from pojisteni.forms import PojisteniForm
@@ -33,19 +35,23 @@ def novy_pojisteny(request):
     return render(request, 'novy_pojisteny.html', {'form': form})
 
 
-def pridat_pojisteni(request):
+def pridat_pojisteni(request, pk):
+    pojisteny = get_object_or_404(Pojisteny, pk=pk)
+    
     if request.method == 'POST':
-        # Zpracování formuláře pro přidání nového pojištění
         form = PojisteniForm(request.POST)
         if form.is_valid():
-            form.save()
-            # Přesměrování na detail nově přidaného pojištění
-            return redirect('detail_pojisteneho', pk=form.instance.pk)
+            pojisteni = form.save(commit=False)
+            pojisteni.pojisteny_objekt_id = pojisteny.pk
+            pojisteni.save()
+            return redirect('detail_pojisteneho', pk=pojisteny.pk)
     else:
-        # Zobrazení prázdného formuláře pro přidání nového pojištění
         form = PojisteniForm()
+    
+    return render(request, 'pridat_pojisteni.html', {'form': form, 'pojisteny': pojisteny})
 
-    return render(request, 'pridat_pojisteni.html', {'form': form})
+
+
 
 
 def editovat_pojisteneho(request, pk):
@@ -69,3 +75,30 @@ def odstranit_pojisteneho(request, pk):
         return redirect('seznam_pojistenych')
 
     return render(request, 'odstranit_pojisteneho.html', {'pojisteny': pojisteny})
+
+
+def editovat_pojisteni(request, pk):
+    pojisteni = get_object_or_404(Pojisteni, pk=pk)
+
+    if request.method == 'POST':
+        form = PojisteniForm(request.POST, instance=pojisteni)
+        if form.is_valid():
+            form.save()
+            return redirect('detail_pojisteneho', pk=pojisteni.pojisteny_objekt.pk)
+    else:
+        form = PojisteniForm(instance=pojisteni)
+
+    return render(request, 'editovat_pojisteni.html', {'form': form})
+
+
+
+def odstranit_pojisteni(request, pk):
+    pojisteni = get_object_or_404(Pojisteni, pk=pk)
+    
+    if request.method == 'POST':
+        # Potvrzení odstranění pojistění
+        pojisteni.delete()
+        return redirect('seznam_pojistenych')
+    
+    # Zobrazit potvrzovací stránku pro odstranění pojistění
+    return render(request, 'odstranit_pojisteni.html', {'pojisteni': pojisteni})
