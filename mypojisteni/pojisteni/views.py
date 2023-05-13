@@ -77,6 +77,7 @@ def odstranit_pojisteneho(request, pk):
     return render(request, 'odstranit_pojisteneho.html', {'pojisteny': pojisteny})
 
 
+
 def editovat_pojisteni(request, pk):
     pojisteni = get_object_or_404(Pojisteni, pk=pk)
 
@@ -94,6 +95,7 @@ def editovat_pojisteni(request, pk):
 
 def odstranit_pojisteni(request, pk):
     pojisteni = get_object_or_404(Pojisteni, pk=pk)
+    pojisteny = pojisteni.pojisteny_objekt
     
     if request.method == 'POST':
         # Potvrzení odstranění pojistění
@@ -101,4 +103,5 @@ def odstranit_pojisteni(request, pk):
         return redirect('seznam_pojistenych')
     
     # Zobrazit potvrzovací stránku pro odstranění pojistění
-    return render(request, 'odstranit_pojisteni.html', {'pojisteni': pojisteni})
+    return render(request, 'odstranit_pojisteni.html', {'pojisteni': pojisteni, 'pojisteny': pojisteny})
+

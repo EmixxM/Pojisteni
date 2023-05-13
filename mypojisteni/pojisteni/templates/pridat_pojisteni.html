@@ -6,7 +6,7 @@
         {% csrf_token %}
         <div>
             <label for="id_pojisteni">Pojištění:</label>
-            <input type="text" id="id_pojisteni" name="pojisteni" value="{{ pojisteni.nazev }}">
+            <input type="text" id="id_pojisteni" name="nazev" value="{{ pojisteni.nazev }}">
         </div>
         <div>
             <label for="id_castka">Částka:</label>
@@ -39,6 +39,7 @@
         </ul>
     </div>
 {% endif %}
+<a href="{% url 'detail_pojisteneho' pk=pojisteny.pk %}" class="btn btn-secondary">Zpět na detail</a>
 {% endblock %}
 
 

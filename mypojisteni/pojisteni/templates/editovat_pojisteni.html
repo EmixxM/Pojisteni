@@ -1,0 +1,21 @@
+
+
+{% block content %}
+  <h1>Editace pojistění</h1>
+
+  <form method="POST" action="">
+    {% csrf_token %}
+
+    <label for="nazev">Název:</label>
+    <input type="text" id="nazev" name="nazev" value="{{ pojisteni.nazev }}"><br>
+
+    <label for="castka">Částka:</label>
+    <input type="number" id="castka" name="castka" value="{{ pojisteni.castka }}"><br>
+
+    <input type="submit" value="Uložit" class="btn btn-primary">
+
+  </form>
+{% endblock %}
+
+
+
