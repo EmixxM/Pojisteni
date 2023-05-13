@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/****reusable****/
+.row {
+    max-width: 1140px;
+    margin: auto;
+}
+
+h1 {
+    font-size: 5em;
+    text-align: center;
+}
+
+
+li a {
+    color: green;
+}
+
+body {
+    /* background: white url("images/logo2.png") no-repeat; */
+ 
+}
+
+img {
+    max-width: 100%;
+    text-align: center;
+
+}

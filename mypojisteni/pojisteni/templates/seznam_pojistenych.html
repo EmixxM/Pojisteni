@@ -1,10 +1,14 @@
+{% load static %}
 
+<link rel="stylesheet" href="{% static 'pojisteni/style.css' %}">
 
 {% block content %}
+  
+    <img src="{% static 'pojisteni/images/logo6.png' %}" alt="Obrázek">
     <h1>Seznam pojištěných</h1>
 
     <a href="{% url 'novy_pojisteny' %}" class="btn btn-primary">Nový pojištěnec</a>
-
+    
     <ul>
     {% for pojisteny in pojisteni %}
         <li><a href="{% url 'detail_pojisteneho' pojisteny.pk %}">{{ pojisteny.jmeno }} {{ pojisteny.prijmeni }}</a></li>
