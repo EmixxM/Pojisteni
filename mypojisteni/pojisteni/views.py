@@ -4,6 +4,7 @@ from django.shortcuts import redirect, render, get_object_or_404
 from django.http import HttpResponse
 from django.urls import reverse
 from pojisteni.models import Pojisteny, Pojisteni
+from pojisteni.forms import PojisteniForm, PojistenyForm
 
 from pojisteni.forms import PojistenyForm
 from pojisteni.forms import PojisteniForm
@@ -88,8 +89,12 @@ def editovat_pojisteni(request, pk):
             return redirect('detail_pojisteneho', pk=pojisteni.pojisteny_objekt.pk)
     else:
         form = PojisteniForm(instance=pojisteni)
+        # Předvyplnění hodnoty částky v poli formuláře
+        form.fields['castka'].initial = pojisteni.castka
 
-    return render(request, 'editovat_pojisteni.html', {'form': form})
+    # return render(request, 'editovat_pojisteni.html', {'form': form})
+    return render(request, 'editovat_pojisteni.html', {'pojisteni': pojisteni})
+
 
 
 

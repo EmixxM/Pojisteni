@@ -12,7 +12,19 @@
     <label for="castka">Částka:</label>
     <input type="number" id="castka" name="castka" value="{{ pojisteni.castka }}"><br>
 
+    <label for="predmet">Předmět:</label>
+    <input type="text" id="predmet" name="predmet" value="{{ pojisteni.predmet }}"><br>
+
+    <label for="platnost_od">Platnost od:</label>
+    <input type="date" id="platnost_od" name="platnost_od" value="{{ pojisteni.platnost_od|date:'Y-m-d' }}"><br>
+
+    <label for="platnost_do">Platnost do:</label>
+    <input type="date" id="platnost_do" name="platnost_do" value="{{ pojisteni.platnost_do|date:'Y-m-d' }}"><br>
+
     <input type="submit" value="Uložit" class="btn btn-primary">
+
+    <a href="{% url 'detail_pojisteneho' pk=pojisteni.pojisteny_objekt.pk %}" class="btn btn-secondary">Zpět na detail pojistěného</a> 
+
 
   </form>
 {% endblock %}

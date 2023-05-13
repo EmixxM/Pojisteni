@@ -17,6 +17,7 @@ class PojisteniForm(forms.ModelForm):
             'platnost_od': forms.DateInput(attrs={'type': 'date'}),
             'platnost_do': forms.DateInput(attrs={'type': 'date'}),
         }
+        initial = {'castka': '...' }  # Předvyplněná hodnota částky
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

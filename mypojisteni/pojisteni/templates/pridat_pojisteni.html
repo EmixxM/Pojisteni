@@ -10,19 +10,19 @@
         </div>
         <div>
             <label for="id_castka">Částka:</label>
-            <input type="number" id="id_castka" name="castka">
+            <input type="number" id="id_castka" name="castka" value="{{ pojisteni.castka }}">
         </div>
         <div>
             <label for="id_predmet">Předmět pojištění:</label>
-            <input type="text" id="id_predmet" name="predmet">
+            <input type="text" id="id_predmet" name="predmet" value="{{ pojisteni.predmet }}">
         </div>
         <div>
             <label for="id_platnost_od">Platnost od:</label>
-            <input type="date" id="id_platnost_od" name="platnost_od">
+            <input type="date" id="id_platnost_od" name="platnost_od" value="{{ pojisteni.platnost_od }}">
         </div>
         <div>
             <label for="id_platnost_do">Platnost do:</label>
-            <input type="date" id="id_platnost_do" name="platnost_do">
+            <input type="date" id="id_platnost_do" name="platnost_do" value="{{ pojisteni.platnost_do }}">
         </div>
         <button type="submit">Uložit</button>
     </form>
