@@ -1,0 +1,21 @@
+{% block content %}
+<h1>Potvrzení odstranění pojištěného</h1>
+
+<p>Jste si jisti, že chcete odstranit následujícího pojištěného?</p>
+
+<p><strong>Jméno:</strong> {{ pojisteny.jmeno }}</p>
+<p><strong>Příjmení:</strong> {{ pojisteny.prijmeni }}</p>
+<p><strong>Adresa:</strong> {{ pojisteny.ulice }} {{ pojisteny.cislo_popisne }}, {{ pojisteny.mesto }}</p>
+<p><strong>Email:</strong> {{ pojisteny.email }}</p>
+<p><strong>Telefon:</strong> {{ pojisteny.telefon }}</p>
+
+<form method="POST" action="{% url 'odstranit_pojisteneho' pk=pojisteny.pk %}">
+  {% csrf_token %}
+  <input type="submit" value="Odstranit" class="btn btn-danger">
+  <a href="{% url 'detail_pojisteneho' pk=pojisteny.pk %}" class="btn btn-secondary">Zrušit</a>
+</form>
+
+{% endblock %}
+
+
+
