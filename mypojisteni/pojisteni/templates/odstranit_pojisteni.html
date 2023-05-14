@@ -1,16 +1,27 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'pojisteni/style.css' %}">
+
+
 {% block content %}
+<div class="row">
+  <img id="logo" src="{% static 'pojisteni/images/logo6.png' %}" alt="Logo">
 <h1>Potvrzení odstranění pojištění</h1>
 
-<p>Jste si jisti, že chcete odstranit toto pojištění?</p>
+<h2 class="upozorneni">Jste si jisti, že chcete odstranit toto pojištění?</h2>
 
-<p><strong>Název pojistění:</strong> {{ pojisteni.nazev }}</p>
-<p><strong>Částka:</strong> {{ pojisteni.castka }}</p>
+<div class="del-inf">
+  <p><strong>Název pojistění:</strong> {{ pojisteni.nazev }}</p>
+  <p><strong>Předmět pojištění:</strong> {{ pojisteni.predmet }}</p>
+  <p><strong>Částka:</strong> {{ pojisteni.castka }}</p>
+</div>
 
-<form method="POST" action="{% url 'odstranit_pojisteni' pk=pojisteni.pk %}">
+<form class="form-odstr" method="POST" action="{% url 'odstranit_pojisteni' pk=pojisteni.pk %}">
   {% csrf_token %}
   <input type="submit" value="Odstranit" class="btn btn-danger">
-  <a href="{% url 'detail_pojisteneho' pk=pojisteny.pk %}" class="btn btn-secondary">Zrušit</a>
+  
 </form>
+<a href="{% url 'detail_pojisteneho' pk=pojisteny.pk %}" class="btn btn-secondary btn-zrus">Zrušit</a>
 
 {% endblock %}
 

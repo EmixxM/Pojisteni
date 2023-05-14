@@ -1,6 +1,10 @@
+{% load static %}
 
+<link rel="stylesheet" href="{% static 'pojisteni/style.css' %}">
 
 {% block content %}
+<div class="row">
+  <img id="logo" src="{% static 'pojisteni/images/logo6.png' %}" alt="Logo">
   <h1>Editace pojistěného</h1>
 
   <form method="POST" action="">
@@ -30,11 +34,11 @@
     <label for="psc">Psč:</label>
     <input type="text" id="psc" name="psc" value="{{ pojisteny.psc }}"><br>
 
-    <input type="submit" value="Uložit" class="btn btn-primary">
-
-    <a href="{% url 'detail_pojisteneho' pk=pojisteny.pk %}" class="btn btn-secondary">Zrušit</a> 
+    <input type="submit" value="Uložit" class="btn btn-primary btn-form"> 
 
 
   </form>
+  <a href="{% url 'detail_pojisteneho' pk=pojisteny.pk %}" class="btn btn-secondary btn-zrus">Zrušit</a>
+</div>
 {% endblock %}
 

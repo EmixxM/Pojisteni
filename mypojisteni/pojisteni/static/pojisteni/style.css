@@ -10,23 +10,188 @@
     margin: auto;
 }
 
+#logo {
+    max-width: 30%;
+    margin: 3%;
+    
+}
+
 h1 {
-    font-size: 5em;
+    font-size: 4em;
     text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #195a98;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-
-li a {
-    color: green;
+h2 {
+    font-size: 1.6em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #071467;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    margin-left: 0.3em;
 }
+
+.upozorneni {
+    color: #ff0000;
+    margin-left: 1.8em;
+}
+
+/* #################### UL #################### */
+
+.seznam a {
+    color: rgb(5, 92, 5);
+    text-decoration: none;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.seznam {
+    list-style-type: none;
+    
+}
+
+.seznam li:hover {
+    background-color: #f2f2f2;
+    color: #ff0000;
+}
+  
 
 body {
     /* background: white url("images/logo2.png") no-repeat; */
  
 }
 
-img {
-    max-width: 100%;
-    text-align: center;
+/* ######################## BTN ########################## */
 
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #17c600;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 27px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    /* Další vlastnosti stylu podle tvých preferencí */
 }
+  
+.btn:hover {
+    background-color: #128b02;
+    /* Další vlastnosti stylu pro stav při najetí myší */
+}
+   
+
+.centered-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8em;
+}
+
+.btn-novy {
+    font-size: 40px;
+}
+
+.btn-form {
+    margin: 0.5em;
+}
+
+.btn-zrus {
+    margin-left: 1.5em;
+    background-color: #ff8400;
+}
+
+.btn-zrus:hover {
+    background-color: #d46e02;
+}
+
+.btn-informace {
+    margin: 0.8em;
+}
+
+.btn-edit {
+    background-color: #dcba15;
+}
+
+.btn-edit:hover {
+    background-color: #c1a51c;
+}
+
+.btn-odstr {
+    background-color: #d45202;
+} 
+
+.btn-odstr:hover {
+    background-color: #b4551a;
+}
+
+.btn-pridat {
+    margin-top: 0.5em;
+}
+
+.btn-zpet {
+    background-color: #195a98;
+    margin-left: 0.6em;
+}
+
+.btn-zpet:hover {
+    background-color: #3c7bb6;
+}
+
+.btn-danger {
+    background-color: #ff0000;
+    
+}
+
+.btn-danger:hover {
+    background-color: #c91e1e;
+    
+}
+
+/* ############## FORM ############## */
+
+form {
+    margin: 1em;
+    text-align: center;
+    font-size: 40px;
+    background-color: rgb(177, 201, 201);
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="number"],
+form input[type="date"],
+form textarea {
+    font-size: 30px;
+}
+
+.form-odstr {
+    background-color: #ffffff;
+}
+
+.informace {
+    font-size: 20px;
+    margin-left: 0.5em;
+}
+
+.del-inf {
+    font-size: 30px;
+    margin-left: 1.5em;
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+.pojisteni-table {
+    font-size: 2em;
+    margin-left: 0.5em;
+}
+
+table.pojisteni-table td {
+    padding: 0.2em;
+  }

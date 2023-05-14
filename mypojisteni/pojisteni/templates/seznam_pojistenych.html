@@ -3,16 +3,17 @@
 <link rel="stylesheet" href="{% static 'pojisteni/style.css' %}">
 
 {% block content %}
-  
-    <img src="{% static 'pojisteni/images/logo6.png' %}" alt="Obrázek">
+  <div class="row">
+    <img id="logo" src="{% static 'pojisteni/images/logo6.png' %}" alt="Logo">
     <h1>Seznam pojištěných</h1>
-
-    <a href="{% url 'novy_pojisteny' %}" class="btn btn-primary">Nový pojištěnec</a>
-    
-    <ul>
+    <div class="centered-button">
+        <a href="{% url 'novy_pojisteny' %}" class="btn btn-primary btn-novy">Nový pojištěnec</a>
+    </div>
+    <ul class="seznam">
     {% for pojisteny in pojisteni %}
         <li><a href="{% url 'detail_pojisteneho' pojisteny.pk %}">{{ pojisteny.jmeno }} {{ pojisteny.prijmeni }}</a></li>
     {% endfor %}
     </ul>
+  </div>  
 {% endblock %}
 

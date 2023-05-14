@@ -1,6 +1,10 @@
+{% load static %}
 
+<link rel="stylesheet" href="{% static 'pojisteni/style.css' %}">
 
 {% block content %}
+<div class="row">
+  <img id="logo" src="{% static 'pojisteni/images/logo6.png' %}" alt="Logo">
   <h1>Editace pojistění</h1>
 
   <form method="POST" action="">
@@ -21,12 +25,12 @@
     <label for="platnost_do">Platnost do:</label>
     <input type="date" id="platnost_do" name="platnost_do" value="{{ pojisteni.platnost_do|date:'Y-m-d' }}"><br>
 
-    <input type="submit" value="Uložit" class="btn btn-primary">
-
-    <a href="{% url 'detail_pojisteneho' pk=pojisteni.pojisteny_objekt.pk %}" class="btn btn-secondary">Zpět na detail pojistěného</a> 
+    <input type="submit" value="Uložit" class="btn btn-primary btn-form"> 
 
 
   </form>
+  <a href="{% url 'detail_pojisteneho' pk=pojisteni.pojisteny_objekt.pk %}" class="btn btn-secondary btn-zrus">Zrušit</a>
+</div>
 {% endblock %}
 
 

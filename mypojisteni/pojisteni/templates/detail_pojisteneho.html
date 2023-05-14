@@ -1,24 +1,33 @@
+{% load static %}
 
+<link rel="stylesheet" href="{% static 'pojisteni/style.css' %}">
 
 {% block content %}
 <!-- detail_pojisteneho.html -->
-
-<h1>Detail pojisteného</h1>
+<div class="row">
+    <img id="logo" src="{% static 'pojisteni/images/logo6.png' %}" alt="Logo">    
+<h1>Detail pojištěného</h1>
 
 <div>
-    <h2>Informace o pojisteném</h2>
-    <p>
+    <h2>Informace o pojištěném</h2>
+    <p class="informace">
         <strong>Jméno:</strong> {{ pojisteny.jmeno }}<br>
         <strong>Příjmení:</strong> {{ pojisteny.prijmeni }}<br>
         <strong>Adresa:</strong> {{ pojisteny.ulice }} {{ pojisteny.cislo_popisne }}, {{ pojisteny.mesto }}<br>
         <strong>Email:</strong> {{ pojisteny.email }}<br>
         <strong>Telefon:</strong> {{ pojisteny.telefon }}<br>
     </p>
+    <div class="btn-informace">
+        <a href="{% url 'editovat_pojisteneho' pojisteny.pk %}" class="btn btn-primary btn-edit">Editovat pojištěného</a>
+        <a href="{% url 'odstranit_pojisteneho' pojisteny.pk %}" class="btn btn-danger btn-odstr">Odstranit pojištěného</a>
+        <a href="{% url 'pridat_pojisteni' pojisteny.pk %}" class="btn btn-primary btn-pridat">Přidat pojištění</a>
+        <a href="{% url 'seznam_pojistenych' %}" class="btn btn-primary btn-zpet">Zpět</a>
+    </div>
 </div>
 
 <div>
     <h2>Sjednaná pojištění</h2>
-    <table>
+    <table class="pojisteni-table">
         <thead>
             <tr>
                 <th>Pojištění</th>
@@ -32,10 +41,10 @@
                 <td>{{ pojisteni.nazev }}</td>
                 <td>{{ pojisteni.castka }}</td>
                 <td>
-                    <a href="{% url 'editovat_pojisteni' pojisteni.pk %}">Editovat pojistění</a>
-                    <a href="{% url 'odstranit_pojisteni' pojisteni.pk %}">Odstranit pojistění</a>
+                    <a href="{% url 'editovat_pojisteni' pojisteni.pk %}" class="btn btn-primary btn-edit">Editovat pojištění</a>
+                    <a href="{% url 'odstranit_pojisteni' pojisteni.pk %}" class="btn btn-primary btn-odstr">Odstranit pojištění</a>
                 </td>
-
+                    
                 </td>
             </tr>
             {% endfor %}
@@ -44,11 +53,9 @@
 </div>
 
 <div>
-    <a href="{% url 'pridat_pojisteni' pojisteny.pk %}" class="btn btn-primary">Přidat pojištění</a>
-    <a href="{% url 'editovat_pojisteneho' pojisteny.pk %}" class="btn btn-primary">Editovat pojisteného</a>
-    <a href="{% url 'odstranit_pojisteneho' pojisteny.pk %}" class="btn btn-danger">Odstranit pojisteného</a>
+    
 </div>
 
-<a href="{% url 'seznam_pojistenych' %}" class="btn btn-primary">Seznam pojištěných</a>
+</div>
 {% endblock %}
 

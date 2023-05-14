@@ -1,6 +1,10 @@
+{% load static %}
 
+<link rel="stylesheet" href="{% static 'pojisteni/style.css' %}">
 
 {% block content %}
+<div class="row">
+    <img id="logo" src="{% static 'pojisteni/images/logo6.png' %}" alt="Logo">
     <h1>Přidat pojištění: {{ pojisteny.jmeno }} {{ pojisteny.prijmeni }}</h1>
     <form method="post">
         {% csrf_token %}
@@ -10,7 +14,7 @@
         </div>
         <div>
             <label for="id_castka">Částka:</label>
-            <input type="number" id="id_castka" name="castka" value="{{ pojisteni.castka }}">
+            <input type="text" id="id_castka" name="castka" value="{{ pojisteni.castka }}">
         </div>
         <div>
             <label for="id_predmet">Předmět pojištění:</label>
@@ -24,7 +28,7 @@
             <label for="id_platnost_do">Platnost do:</label>
             <input type="date" id="id_platnost_do" name="platnost_do" value="{{ pojisteni.platnost_do }}">
         </div>
-        <button type="submit">Uložit</button>
+        <button class="btn btn-form" type="submit">Uložit</button>
     </form>
 
 {% if form.errors %}
@@ -39,7 +43,8 @@
         </ul>
     </div>
 {% endif %}
-<a href="{% url 'detail_pojisteneho' pk=pojisteny.pk %}" class="btn btn-secondary">Zpět na detail</a>
+<a href="{% url 'detail_pojisteneho' pk=pojisteny.pk %}" class="btn btn-secondary btn-zrus">Zrušit</a>
+</div>
 {% endblock %}
 
 
