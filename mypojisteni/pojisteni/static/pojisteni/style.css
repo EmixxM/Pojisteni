@@ -62,10 +62,10 @@ h2 {
 }
   
 
-body {
-    /* background: white url("images/logo2.png") no-repeat; */
+/* body {
+    background: white url("images/logo2.png") no-repeat;
  
-}
+} */
 
 /* ######################## BTN ########################## */
 
@@ -202,3 +202,37 @@ table.pojisteni-table td {
     background-position: center;
     background-size: contain;   
 } */
+
+/*****footer*****/
+.pata {
+    background-color: rgb(245, 245, 253);
+    color: black;
+    /* border: solid 1px black; */
+}
+
+.social {
+    text-align: center;
+    margin: 8px 0px;
+    text-decoration: none;
+}
+
+.social p {
+    display: inline;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.social p a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+.social p a:hover {
+    color: blue;
+}
+
+.copytext {
+    text-align: center;
+    margin: 8px 0px;
+}
