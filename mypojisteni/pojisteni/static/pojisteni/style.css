@@ -194,4 +194,11 @@ form textarea {
 
 table.pojisteni-table td {
     padding: 0.2em;
-  }
+}
+
+/* .oba {
+    background: url(images/background.png) no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: contain;   
+} */

@@ -3,9 +3,11 @@
 <link rel="stylesheet" href="{% static 'pojisteni/style.css' %}">
 
 {% block content %}
+<section class="oba">
   <div class="row">
     <img id="logo" src="{% static 'pojisteni/images/logo6.png' %}" alt="Logo">
     <h1>Seznam pojištěných</h1>
+ 
     <div class="centered-button">
         <a href="{% url 'novy_pojisteny' %}" class="btn btn-primary btn-novy">Nový pojištěnec</a>
     </div>
@@ -14,6 +16,8 @@
         <li><a href="{% url 'detail_pojisteneho' pojisteny.pk %}">{{ pojisteny.jmeno }} {{ pojisteny.prijmeni }}</a></li>
     {% endfor %}
     </ul>
-  </div>  
+ 
+  </div> 
+</section>
 {% endblock %}
 
