@@ -6,11 +6,17 @@
 <section class="oba">
   <div class="row">
     <img id="logo" src="{% static 'pojisteni/images/logo6.png' %}" alt="Logo">
-    <h1>Seznam pojištěných</h1>
+    <h1>SEZNAM POJIŠTĚNÝCH</h1>
  
     <div class="centered-button">
         <a href="{% url 'novy_pojisteny' %}" class="btn btn-primary btn-novy">Nový pojištěnec</a>
     </div>
+    <form class="form_vyhledat" method="GET" action="{% url 'seznam_pojistenych' %}">
+        <input class="vyhledavaci_pole" type="text" name="q" placeholder="Vyhledat pojištěného">
+      <p>
+        <button class="btn btn_hledat" type="submit">Hledat</button>
+      </p>
+    </form>
     <ul class="seznam">
     {% for pojisteny in pojisteni %}
         <li><a href="{% url 'detail_pojisteneho' pojisteny.pk %}">{{ pojisteny.jmeno }} {{ pojisteny.prijmeni }}</a></li>

@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render, get_object_or_404
-
+from django.db.models import Q
 # Create your views here.
 from django.http import HttpResponse
 from django.urls import reverse
@@ -12,9 +12,24 @@ from pojisteni.forms import PojisteniForm
 
 from .models import Pojisteny
 
+
+# def seznam_pojistenych(request):
+#     pojisteni = Pojisteny.objects.all()
+#     return render(request, 'seznam_pojistenych.html', {'pojisteni': pojisteni})
+
+
 def seznam_pojistenych(request):
+    query = request.GET.get('q')
     pojisteni = Pojisteny.objects.all()
+    
+    if query:
+        query_parts = query.split(" ")
+        for part in query_parts:
+            pojisteni = pojisteni.filter(Q(jmeno__icontains=part) | Q(prijmeni__icontains=part) |
+                                         Q(jmeno__iregex=fr".*\b{part}\b.*") | Q(prijmeni__iregex=fr".*\b{part}\b.*"))
+    
     return render(request, 'seznam_pojistenych.html', {'pojisteni': pojisteni})
+
 
 def detail_pojisteneho(request, pk):
     pojisteny = get_object_or_404(Pojisteny, pk=pk)

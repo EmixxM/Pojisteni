@@ -154,6 +154,18 @@ h2 {
     
 }
 
+.btn_hledat {
+    font-size: 0.7em;
+    margin-top: 0.3em;
+    margin-bottom: 0em;
+    background-color: #195a98;
+    
+}
+
+.btn_hledat:hover {
+    background-color: #3c7bb6;
+}
+
 /* ############## FORM ############## */
 
 form {
@@ -173,6 +185,18 @@ form textarea {
 
 .form-odstr {
     background-color: #ffffff;
+}
+
+.form_vyhledat {
+    background-color: white;
+    margin-top: 0em;
+    margin-bottom: 0.3em;
+    
+}
+
+.vyhledavaci_pole {
+    text-align: center;
+    border: 3px solid ;
 }
 
 .informace {
