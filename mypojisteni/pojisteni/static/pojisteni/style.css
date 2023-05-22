@@ -78,12 +78,12 @@ h2 {
     border-radius: 4px;
     font-size: 27px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    /* Další vlastnosti stylu podle tvých preferencí */
+    
 }
   
 .btn:hover {
     background-color: #128b02;
-    /* Další vlastnosti stylu pro stav při najetí myší */
+    
 }
    
 
